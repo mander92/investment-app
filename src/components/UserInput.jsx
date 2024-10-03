@@ -7,9 +7,9 @@ const UserInput = ({ onChange, userInput }) => {
                     <input
                         type='number'
                         required
-                        value={userInput.initialIvestment}
+                        value={userInput.initialInvestment}
                         onChange={(e) =>
-                            onChange('initialIvestment', e.target.value)
+                            onChange('initialInvestment', e.target.value)
                         }
                     />
                 </p>
@@ -31,9 +31,9 @@ const UserInput = ({ onChange, userInput }) => {
                     <input
                         type='number'
                         required
-                        value={userInput.expectReturn}
+                        value={userInput.expectedReturn}
                         onChange={(e) =>
-                            onChange('expectReturn', e.target.value)
+                            onChange('expectedReturn', e.target.value)
                         }
                     />
                 </p>
