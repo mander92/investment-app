@@ -1,33 +1,15 @@
-import { useState } from 'react';
-
-const UserInput = () => {
-    const [userInput, setUserInput] = useState({
-        initialIvestment: 1000,
-        annualInvestment: 1200,
-        expectReturn: 6,
-        duration: 10,
-    });
-
-    const handelChange = (inputIdetifier, newValue) => {
-        setUserInput((preUserInput) => {
-            return {
-                ...preUserInput,
-                [inputIdetifier]: newValue,
-            };
-        });
-    };
-
+const UserInput = ({ onChange, userInput }) => {
     return (
         <section id='user-input'>
             <div className='input-group'>
                 <p>
-                    <lablel>Retorno Esperado</lablel>
+                    <lablel>Inversión Inicial</lablel>
                     <input
                         type='number'
                         required
                         value={userInput.initialIvestment}
                         onChange={(e) =>
-                            handelChange('initialIvestment', e.target.value)
+                            onChange('initialIvestment', e.target.value)
                         }
                     />
                 </p>
@@ -38,10 +20,12 @@ const UserInput = () => {
                         required
                         value={userInput.annualInvestment}
                         onChange={(e) =>
-                            handelChange('annualInvestment', e.target.value)
+                            onChange('annualInvestment', e.target.value)
                         }
                     />
                 </p>
+            </div>
+            <div className='input-group'>
                 <p>
                     <lablel>Retorno Esperado</lablel>
                     <input
@@ -49,7 +33,7 @@ const UserInput = () => {
                         required
                         value={userInput.expectReturn}
                         onChange={(e) =>
-                            handelChange('expectReturn', e.target.value)
+                            onChange('expectReturn', e.target.value)
                         }
                     />
                 </p>
@@ -59,9 +43,7 @@ const UserInput = () => {
                         type='number'
                         required
                         value={userInput.duration}
-                        onChange={(e) =>
-                            handelChange('duration', e.target.value)
-                        }
+                        onChange={(e) => onChange('duration', e.target.value)}
                     />
                 </p>
             </div>
